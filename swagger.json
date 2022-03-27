@@ -1,0 +1,52 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de teste",
+    "description": "API teste",
+    "version": "0.0.1"
+  },
+  "components": {
+    "schemas": {
+      "response 200": {
+        "responses": {
+          "200": {
+            "description": "Lista da entidade em questão"
+          }
+        }
+      }
+    }
+  },
+  "tags": ["Users"],
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Dev"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Retorna uma lista de usuários",
+        "$ref": "#components/schemas/response 200"
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Retorna usuário pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da pessoa",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "JSON de um usuário específico"
+          }
+        }
+      }
+    }
+  }
+}
